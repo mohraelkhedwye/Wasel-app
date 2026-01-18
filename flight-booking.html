@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حجز طيران - واصـل</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .booking-container {
+            border: 2px solid #d4af37;
+            box-shadow: 0 0 15px #d4af37;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #d4af37;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #d4af37;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #d4af37;
+            background: #111;
+            color: #fff;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .trip-type {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 15px;
+        }
+
+        .btn-confirm {
+            width: 100%;
+            padding: 15px;
+            background-color: #d4af37;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-confirm:hover {
+            background-color: #fff;
+            box-shadow: 0 0 15px #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="booking-container">
+    <div class="header">
+        <img src="assets/air.png" alt="Flight">
+        <h2>تفاصيل حجز الطيران</h2>
+    </div>
+
+    <form>
+        <div class="trip-type">
+            <label><input type="radio" name="type" checked> ذهاب وعودة</label>
+            <label><input type="radio" name="type"> ذهاب فقط</label>
+        </div>
+
+        <div class="form-group">
+            <label>من (مطار المغادرة)</label>
+            <input type="text" placeholder="مثلاً: مطار القاهرة">
+        </div>
+
+        <div class="form-group">
+            <label>إلى (جهة الوصول)</label>
+            <input type="text" placeholder="مثلاً: مطار جدة">
+        </div>
+
+        <div class="form-group">
+            <label>تاريخ السفر</label>
+            <input type="date">
+        </div>
+
+        <div class="form-group">
+            <label>درجة السفر</label>
+            <select>
+                <option>الاقتصادية</option>
+                <option>رجال الأعمال</option>
+                <option>الدرجة الأولى</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>عدد المسافرين</label>
+            <input type="number" min="1" value="1">
+        </div>
+
+        <button type="submit" class="btn-confirm">البحث عن رحلات</button>
+    </form>
+</div>
+
+</body>
+</html>
