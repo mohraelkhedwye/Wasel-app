@@ -21,17 +21,37 @@
     .services-grid a { text-decoration: none; }
 
     /* ده التعديل اللي هيجيب لك شكل صورة Book Now بالظبط */
-    .service-card { 
-    background: #000; /* خلفية سوداء */
-    border: 1px solid #d4af37; /* برواز ذهبي رفيع */
-    border-radius: 15px; 
+    /* تنسيق الكارت (خلفية الأيقونة السوداء المضيئة) */
+.service-card {
+    background: #000;
+    border: 1px solid #d4af37;
+    border-radius: 20px;
     padding: 20px 10px;
-    /* التوهج أو الإضاءة السوداء/الذهبية */
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); /* هذا هو السواد المضيء */
+    transition: 0.3s;
 }
+
+/* تنسيق زر "احجز الآن" الذهبي اللامع */
+.book-now-btn {
+    background: linear-gradient(180deg, #f9e2a8 0%, #d4af37 50%, #b38728 100%);
+    color: #000;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    margin-top: 15px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* تنسيق الأيقونة والاسم */
+.service-card img { width: 60px; height: 60px; margin-bottom: 10px; }
+.service-card div { color: #fff; font-size: 16px; margin-bottom: 10px; }
+
 
 
     /* حركة لما تلمس الزرار يزود التوهج */
