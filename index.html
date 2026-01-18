@@ -5,37 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WASEL | واصل</title>
         <style>
-        body { background-color: #000; color: #fff; font-family: sans-serif; text-align: center; margin: 0; }
-        .header-nav { display: flex; justify-content: flex-end; padding: 15px; gap: 20px; }
-        .header-nav span { color: #d4af37; font-weight: bold; cursor: pointer; font-size: 14px; }
-        
-        .main-container { padding: 10px; margin: 10px; }
-        .logo-img { width: 100px; margin-bottom: 5px; }
+    body { background-color: #000; color: #fff; font-family: sans-serif; text-align: center; margin: 0; }
+    .header-nav { display: flex; justify-content: flex-end; padding: 15px; gap: 20px; }
+    .header-nav span { color: #d4af37; font-weight: bold; font-size: 13px; }
+    
+    .main-container { padding: 10px; margin: 10px; border: none; }
+    .logo-img { width: 110px; margin-bottom: 10px; }
 
-        .services-grid { 
-            display: grid; 
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 15px; 
-            padding: 10px;
-            margin-top: 10px; 
-        }
-        .services-grid a { text-decoration: none; }
+    .services-grid { 
+        display: grid; 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 20px; 
+        padding: 15px; 
+    }
+    .services-grid a { text-decoration: none; }
 
-        .service-card { 
-            background: #111; 
-            border: 1px solid #d4af37; 
-            padding: 20px 10px; 
-            border-radius: 15px; 
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2); 
-            transition: 0.3s;
-        }
+    /* ده التعديل اللي هيجيب لك شكل صورة Book Now بالظبط */
+    .service-card { 
+        background: #000; 
+        border: 1px solid #d4af37; /* الخط الذهبي الرفيع */
+        padding: 20px 10px; 
+        border-radius: 18px; 
+        /* إضافة التوهج الذهبي (Neon Glow) */
+        box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); 
+        transition: 0.3s ease-in-out;
+    }
 
-        .service-card img { width: 45px; height: 45px; margin-bottom: 10px; }
-        .service-card div { color: #d4af37; font-weight: bold; font-size: 15px; }
+    /* حركة لما تلمس الزرار يزود التوهج */
+    .service-card:active {
+        transform: scale(0.95);
+        box-shadow: 0 0 25px rgba(212, 175, 55, 0.7);
+    }
 
-        .social-icons { margin-top: 25px; display: flex; justify-content: center; gap: 15px; }
-        .social-icons img { width: 30px; height: 30px; }
-    </style>
+    .service-card img { width: 55px; height: auto; margin-bottom: 12px; }
+    .service-card div { color: #d4af37; font-weight: bold; font-size: 16px; letter-spacing: 1px; }
+
+    .social-icons { margin-top: 30px; display: flex; justify-content: center; gap: 20px; }
+    .social-icons img { width: 32px; }
+</style>
 
 </head>
 <body>
