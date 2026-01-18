@@ -104,6 +104,22 @@
     </style>
 </head>
 <body>
+<div id="registerModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #000; border: 2px solid #d4af37; padding: 25px; border-radius: 15px; z-index: 9999; width: 300px; text-align: center; box-shadow: 0 0 20px #d4af37;">
+    <h3 style="color: #d4af37;">إنشاء حساب جديد</h3>
+    <input type="text" id="regName" placeholder="الاسم بالكامل" style="width: 90%; margin-bottom: 10px; padding: 10px; background: #111; border: 1px solid #d4af37; color: #fff; border-radius: 5px;">
+    <input type="text" id="regCity" placeholder="المحافظة" style="width: 90%; margin-bottom: 10px; padding: 10px; background: #111; border: 1px solid #d4af37; color: #fff; border-radius: 5px;">
+    <input type="email" id="regEmail" placeholder="البريد الإلكتروني" style="width: 90%; margin-bottom: 10px; padding: 10px; background: #111; border: 1px solid #d4af37; color: #fff; border-radius: 5px;">
+    <input type="password" id="regPass" placeholder="كلمة المرور" style="width: 90%; margin-bottom: 20px; padding: 10px; background: #111; border: 1px solid #d4af37; color: #fff; border-radius: 5px;">
+    <button id="submitBtn" style="background: #d4af37; color: #000; border: none; padding: 12px; font-weight: bold; cursor: pointer; width: 100%; border-radius: 5px;">سجل الآن</button>
+    <p onclick="document.getElementById('registerModal').style.display='none'" style="color: #fff; cursor: pointer; margin-top: 15px; text-decoration: underline;">إغلاق</p>
+</div>
+
+<script>
+    // كود تشغيل الضغط لإظهار المربع
+    document.getElementById('showRegister').onclick = function() {
+        document.getElementById('registerModal').style.display = 'block';
+    }
+</script>
 
 <div class="main-container">
     <img src="assets/logo.png" alt="Wasel Logo" class="header-logo">
