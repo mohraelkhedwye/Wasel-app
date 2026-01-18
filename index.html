@@ -3,63 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WASEL | واصل للخدمات الفاخرة</title>
+    <title>WASEL | واصل</title>
     <style>
-        /* التنسيق الأساسي للموقع الأسود والذهبي */
-        body {
-            margin: 0; padding: 0; background-color: #000; color: #fff;
-            font-family: 'Arial', sans-serif; overflow-x: hidden;
-        }
+        body { background-color: #000; color: #fff; font-family: sans-serif; text-align: center; margin: 0; }
+        .header-nav { display: flex; justify-content: flex-end; padding: 20px; gap: 20px; }
+        .header-nav span { color: #d4af37; font-weight: bold; cursor: pointer; }
+        .main-container { padding: 20px; border: 2px solid #d4af37; margin: 20px; border-radius: 15px; }
+        .logo-img { width: 150px; margin-bottom: 20px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; }
+        .service-card { border: 1px solid #d4af37; padding: 15px; border-radius: 10px; }
+        .service-card img { width: 40px; }
+    </style>
+</head>
+<body>
+    <div class="header-nav">
+        <span>تسجيل دخول</span>
+        <span>إنشاء حساب</span>
+    </div>
 
-        /* شريط علوي للأزرار */
-        .header-nav {
-            display: flex; justify-content: flex-end; padding: 15px 30px;
-            gap: 20px; background: rgba(0,0,0,0.8); position: sticky; top: 0; z-index: 1000;
-        }
-        .header-nav span {
-            color: #d4af37; cursor: pointer; font-weight: bold; font-size: 16px;
-            text-shadow: 0 0 5px #d4af37; transition: 0.3s;
-        }
-        .header-nav span:hover { transform: scale(1.1); text-shadow: 0 0 15px #d4af37; }
-
-        /* حاوية التصميم */
-        .main-container {
-            max-width: 1000px; margin: 20px auto; border: 2px solid #d4af37;
-            border-radius: 20px; padding: 20px; text-align: center;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-        }
-        .logo-img { width: 150px; margin-bottom: 10px; }
-        .hero-title { color: #fff; font-size: 24px; margin-bottom: 5px; }
-        .hero-subtitle { color: #aaa; font-size: 14px; margin-bottom: 30px; }
-
-        /* شبكة الخدمات (المربعات الستة) */
-        .services-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 15px; padding: 10px;
-        }
-        .service-card {
-            border: 1px solid #d4af37; border-radius: 10px; padding: 15px;
-            background: #000; transition: 0.3s;
-        }
-        .service-card:hover { box-shadow: 0 0 15px #d4af37; }
-        .service-card img { width: 40px; margin-bottom: 10px; filter: sepia(1) saturate(5) hue-rotate(10deg); }
-        .service-card h4 { margin: 5px 0; font-size: 14px; color: #d4af37; }
-        .service-card button {
-            background: none; border: 1px solid #d4af37; color: #d4af37;
-            padding: 5px 10px; cursor: pointer; border-radius: 5px; font-size: 12px;
-        }
-
-        /* المربعات المنبثقة (Popups) */
-        .modal {
-            display: none; position: fixed; top: 50%; left: 50%;
-            transform: translate(-50%, -50%); background: #111;
-            border: 2px solid #d4af37; padding: 25px; border-radius: 15px;
-            z-index: 2000; width: 280px; text-align: center;
-            box-shadow: 0 0 30px #000;
-        }
-        .modal input {
-            width: 90%; padding: 10px; margin-bottom: 10px;
-            background: #000; border: 1px solid #d4af37; color: #fff; border-radius: 5px;
-        }
-        .modal button {
-            width: 100%; padding: 1
+    <div class="main-container">
+        <img src="assets/logo.png" class="logo-img" alt="واصل">
+        <h1>مرحباً بكم في واصل</h1>
+        <div class="services-grid">
+            <div class="service-card"><img src="assets/air.png"><h4>طيران</h4></div>
+            <div class="service-card"><img src="assets/hotel.png"><h4>فنادق</h4></div>
+            <div class="service-card"><img src="assets/train.png"><h4>قطارات</h4></div>
+            <div class="service-card"><img src="assets/bus.png"><h4>أتوبيس</h4></div>
+            <div class="service-card"><img src="assets/car.png"><h4>ليموزين</h4></div>
+            <div class="service-card"><img src="assets/match.png"><h4>مباريات</h4></div>
+        </div>
+    </div>
+</body>
+</html>
