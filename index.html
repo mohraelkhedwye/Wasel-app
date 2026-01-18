@@ -22,14 +22,17 @@
 
     /* ده التعديل اللي هيجيب لك شكل صورة Book Now بالظبط */
     .service-card { 
-        background: #000; 
-        border: 1px solid #d4af37; /* الخط الذهبي الرفيع */
-        padding: 20px 10px; 
-        border-radius: 18px; 
-        /* إضافة التوهج الذهبي (Neon Glow) */
-        box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); 
-        transition: 0.3s ease-in-out;
-    }
+    background: #000; /* خلفية سوداء */
+    border: 1px solid #d4af37; /* برواز ذهبي رفيع */
+    border-radius: 15px; 
+    padding: 20px 10px;
+    /* التوهج أو الإضاءة السوداء/الذهبية */
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
     /* حركة لما تلمس الزرار يزود التوهج */
     .service-card:active {
