@@ -104,15 +104,13 @@
     </style>
 </head>
 <body>
-<div id="registerModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #000; border: 2px solid #d4af37; padding: 25px; border-radius: 15px; z-index: 9999; width: 300px; text-align: center; box-shadow: 0 0 20px #d4af37;">
-    <h3 style="color: #d4af37;">إنشاء حساب جديد</h3>
-    <input type="text" id="regName" placeholder="الاسم بالكامل" style="width: 90%; margin-bottom: 10px; padding: 10px; background: #111; border: 1px solid #d4af37; color: #fff; border-radius: 5px;">
-    <input type="text" id="regCity" placeholder="المحافظة" style="width: 90%; margin-bottom: 10px; padding: 10px; background: #111; border: 1px solid #d4af37; color: #fff; border-radius: 5px;">
-    <input type="email" id="regEmail" placeholder="البريد الإلكتروني" style="width: 90%; margin-bottom: 10px; padding: 10px; background: #111; border: 1px solid #d4af37; color: #fff; border-radius: 5px;">
-    <input type="password" id="regPass" placeholder="كلمة المرور" style="width: 90%; margin-bottom: 20px; padding: 10px; background: #111; border: 1px solid #d4af37; color: #fff; border-radius: 5px;">
-    <button id="submitBtn" style="background: #d4af37; color: #000; border: none; padding: 12px; font-weight: bold; cursor: pointer; width: 100%; border-radius: 5px;">سجل الآن</button>
-    <p onclick="document.getElementById('registerModal').style.display='none'" style="color: #fff; cursor: pointer; margin-top: 15px; text-decoration: underline;">إغلاق</p>
+<<div style="display: flex; justify-content: flex-end; padding: 20px; gap: 20px; direction: rtl; position: relative; z-index: 1000;">
+    <span id="showRegister" style="cursor: pointer; color: #d4af37; text-shadow: 0 0 10px #d4af37; font-weight: bold; font-size: 20px;">إنشاء حساب</span>
 </div>
+
+</div>
+
+
 
 <script>
     // كود تشغيل الضغط لإظهار المربع
@@ -170,6 +168,55 @@
 
         </div>
     </div>
+<div id="registerModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #000; border: 2px solid #d4af37; padding: 25px; border-radius: 15px; z-index: 9999; width: 300px; text-align: center; box-shadow: 0 0 20px #d4af37;">
+    <h3 style="color: #d4af37; margin-bottom: 15px;">إنشاء حساب جديد</h3>
+    <input type="text" id="regName" placeholder="الاسم بالكامل" style="width: 90%; margin-bottom: 10px; padding: 10px; background: #111; border: 1px solid #d4af37; color: #fff; border-radius: 5px;">
+    <input type="text" id="regCity" placeholder="المحافظة" style="width: 90%; margin-bottom: 10px; padding: 10px; background: #111; border: 1px solid #d4af37; color: #fff; border-radius: 5px;">
+    <input type="email" id="regEmail" placeholder="البريد الإلكتروني" style="width: 90%; margin-bottom: 10px; padding: 10px; background: #111; border: 1px solid #d4af37; color: #fff; border-radius: 5px;">
+    <input type="password" id="regPass" placeholder="كلمة المرور" style="width: 90%; margin-bottom: 10px; padding: 10px; background: #111; border: 1px solid #d4af37; color: #fff; border-radius: 5px;">
+    <input type="password" id="regPassConfirm" placeholder="تأكيد كلمة المرور" style="width: 90%; margin-bottom: 20px; padding: 10px; background: #111; border: 1px solid #d4af37; color: #fff; border-radius: 5px;">
+    <button id="finalSubmit" style="background: #d4af37; color: #000; border: none; padding: 12px; font-weight: bold; cursor: pointer; width: 100%; border-radius: 5px;">سجل الآن</button>
+    <p onclick="document.getElementById('registerModal').style.display='none'" style="color: #fff; cursor: pointer; margin-top: 15px; text-decoration: underline;">إغلاق</p>
+</div>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDpgNixBA7K5AmVVsnWRsAKxuBZjVqKeKA",
+    authDomain: "wasel-ff1c1.firebaseapp.com",
+    projectId: "wasel-ff1c1",
+    storageBucket: "wasel-ff1c1.firebasestorage.app",
+    messagingSenderId: "865070117895",
+    appId: "1:865070117895:web:17f64b682297c7362a26a2"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  document.getElementById('showRegister').onclick = () => {
+    document.getElementById('registerModal').style.display = 'block';
+  };
+
+  document.getElementById('finalSubmit').onclick = async () => {
+    const pass = document.getElementById('regPass').value;
+    const confirm = document.getElementById('regPassConfirm').value;
+    if (pass !== confirm) { alert("كلمات المرور غير متطابقة!"); return; }
+
+    try {
+        await setDoc(doc(db, "users", document.getElementById('regEmail').value), {
+            name: document.getElementById('regName').value,
+            city: document.getElementById('regCity').value,
+            email: document.getElementById('regEmail').value,
+            createdAt: new Date()
+        });
+        alert("تم إنشاء حسابك بنجاح في واصل!");
+        document.getElementById('registerModal').style.display = 'none';
+    } catch (e) {
+        alert("حدث خطأ: " + e.message);
+    }
+  };
+</script>
 
     <div class="social-icons">
         <a href="#"><img src="assets/facebook.png" alt="Facebook"></a>
@@ -180,4 +227,55 @@
 </div>
 
 </body>
+    <div id="registerModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #000; border: 2px solid #d4af37; padding: 25px; border-radius: 15px; z-index: 9999; width: 300px; text-align: center; box-shadow: 0 0 20px #d4af37;">
+    <h3 style="color: #d4af37;">إنشاء حساب جديد</h3>
+    <input type="text" id="regName" placeholder="الاسم بالكامل" style="width: 90%; margin-bottom: 10px; padding: 10px; background: #111; border: 1px solid #d4af37; color: #fff; border-radius: 5px;">
+    <input type="text" id="regCity" placeholder="المحافظة" style="width: 90%; margin-bottom: 10px; padding: 10px; background: #111; border: 1px solid #d4af37; color: #fff; border-radius: 5px;">
+    <input type="email" id="regEmail" placeholder="البريد الإلكتروني" style="width: 90%; margin-bottom: 10px; padding: 10px; background: #111; border: 1px solid #d4af37; color: #fff; border-radius: 5px;">
+    <input type="password" id="regPass" placeholder="كلمة المرور" style="width: 90%; margin-bottom: 10px; padding: 10px; background: #111; border: 1px solid #d4af37; color: #fff; border-radius: 5px;">
+    <input type="password" id="regPassConfirm" placeholder="تأكيد كلمة المرور" style="width: 90%; margin-bottom: 20px; padding: 10px; background: #111; border: 1px solid #d4af37; color: #fff; border-radius: 5px;">
+    <button id="finalSubmit" style="background: #d4af37; color: #000; border: none; padding: 12px; font-weight: bold; cursor: pointer; width: 100%; border-radius: 5px;">سجل الآن</button>
+    <p onclick="document.getElementById('registerModal').style.display='none'" style="color: #fff; cursor: pointer; margin-top: 15px;">إغلاق</p>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDpgNixBA7K5AmVVsnWRsAKxuBZjVqKeKA",
+    authDomain: "wasel-ff1c1.firebaseapp.com",
+    projectId: "wasel-ff1c1",
+    storageBucket: "wasel-ff1c1.firebasestorage.app",
+    messagingSenderId: "865070117895",
+    appId: "1:865070117895:web:17f64b682297c7362a26a2"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  document.getElementById('showRegister').onclick = () => {
+    document.getElementById('registerModal').style.display = 'block';
+  };
+
+  document.getElementById('finalSubmit').onclick = async () => {
+    const pass = document.getElementById('regPass').value;
+    const confirm = document.getElementById('regPassConfirm').value;
+    if (pass !== confirm) { alert("كلمات المرور غير متطابقة!"); return; }
+
+    try {
+        await setDoc(doc(db, "users", document.getElementById('regEmail').value), {
+            name: document.getElementById('regName').value,
+            city: document.getElementById('regCity').value,
+            email: document.getElementById('regEmail').value,
+            createdAt: new Date()
+        });
+        alert("تم إنشاء حسابك بنجاح في واصل!");
+        document.getElementById('registerModal').style.display = 'none';
+    } catch (e) {
+        alert("حدث خطأ: " + e.message);
+    }
+  };
+</script>
+
 </html>
