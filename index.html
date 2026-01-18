@@ -21,17 +21,120 @@
         <span>إنشاء حساب</span>
     </div>
 
-    <div class="main-container">
-        <img src="assets/logo.png" class="logo-img" alt="واصل">
-        <h1>مرحباً بكم في واصل</h1>
-        <div class="services-grid">
-            <div class="service-card"><img src="assets/air.png"><h4>طيران</h4></div>
-            <div class="service-card"><img src="assets/hotel.png"><h4>فنادق</h4></div>
-            <div class="service-card"><img src="assets/train.png"><h4>قطارات</h4></div>
-            <div class="service-card"><img src="assets/bus.png"><h4>أتوبيس</h4></div>
-            <div class="service-card"><img src="assets/car.png"><h4>ليموزين</h4></div>
-            <div class="service-card"><img src="assets/match.png"><h4>مباريات</h4></div>
+            background-color: #000;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* الإطار الذهبي المضيء */
+        .main-container {
+            border: 2px solid #d4af37;
+            box-shadow: 0 0 15px #d4af37;
+            margin: 20px;
+            padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .header-logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .category-card {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid #d4af37;
+            border-radius: 10px;
+            padding: 15px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            background: #d4af37;
+            color: #000;
+            transform: translateY(-5px);
+        }
+
+        .category-card img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        .social-icons {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icons img {
+            width: 30px;
+            transition: 0.3s;
+        }
+
+        .social-icons img:hover {
+            filter: drop-shadow(0 0 5px #d4af37);
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <img src="assets/logo.png" alt="Wasel Logo" class="header-logo">
+    
+    <h1>مرحباً بكم في واصل</h1>
+    <p>بوابتك الفاخرة لخدمات الحجز المتكاملة</p>
+
+    <div class="grid-container">
+        <div class="category-card">
+            <img src="assets/hotel.png" alt="فنادق">
+            <div>فنادق</div>
+        </div>
+        <div class="category-card">
+            <img src="assets/air.png" alt="طيران">
+            <div>طيران</div>
+        </div>
+        <div class="category-card">
+            <img src="assets/train.png" alt="قطارات">
+            <div>قطارات</div>
+        </div>
+        <div class="category-card">
+            <img src="assets/bus.png" alt="أتوبيس">
+            <div>أتوبيس</div>
+        </div>
+        <div class="category-card">
+            <img src="assets/car.png" alt="ليموزين">
+            <div>ليموزين</div>
+        </div>
+        <div class="category-card">
+            <img src="assets/match.png" alt="مباريات">
+            <div>مباريات</div>
         </div>
     </div>
+
+    <div class="social-icons">
+        <a href="#"><img src="assets/facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="assets/instagram.png" alt="Instagram"></a>
+        <a href="#"><img src="assets/tiktok.png" alt="TikTok"></a>
+        <a href="#"><img src="assets/telegram.png" alt="Telegram"></a>
+    </div>
+</div>
+
 </body>
 </html>
